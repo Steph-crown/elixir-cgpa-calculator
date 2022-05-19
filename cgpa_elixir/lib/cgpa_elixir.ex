@@ -3,7 +3,6 @@ defmodule CgpaElixir do
   Documentation for `CgpaElixir`.
   """
 
-  @spec hello :: :world
   @doc """
   Hello world.
 
