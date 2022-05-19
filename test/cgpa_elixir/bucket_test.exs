@@ -1,11 +1,15 @@
 defmodule CgpaElixir.BucketTest do
   use ExUnit.Case, async: true
 
-  # checks that the bucket stores value by key
-  test "stores the values by key" do
-    # starts the agent
+  #   sets up spinning of the bucket
+  # so we dont spin it in every single tests
+  setup do
     {:ok, bucket} = CgpaElixir.Bucket.start_link([])
+    %{bucket: bucket}
+  end
 
+  # checks that the bucket stores value by key
+  test "stores the values by key", %{bucket: bucket} do
     # tries to access a non existent key
     assert CgpaElixir.Bucket.get(bucket, "name") == nil
 
