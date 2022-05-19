@@ -18,5 +18,11 @@ defmodule CgpaElixir.BucketTest do
 
     # tries to access the key
     assert CgpaElixir.Bucket.get(bucket, "name") == "stephen emmanuel"
+
+    # delete a key from the bucket
+    CgpaElixir.Bucket.delete(bucket, "name")
+
+    # tries to access the key
+    assert CgpaElixir.Bucket.get(bucket, "name") == nil
   end
 end
